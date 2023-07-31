@@ -19,9 +19,15 @@ INSTRUCTIONS:
 -MENU-
 
 1 - Tonkatsu ramen - tamago (1), noodles (1), tonkatsu broth (1), Prok Chashu (1)
+
 2 - Shoyu ramen - tamago (1), noodles (1), shoyu broth (1), Prok Chashu (1)
+
 3 - Miso ramen - tamago (1), noodles (1), miso broth (1), Pork Chashu (1)
+
 4 - Spicy Tonkatsu ramen - tamago (1), noodles (1), tonkatsu broth (1), Prok Chashu (1), Chili oil (1)
+
 5 - Spicy Shoyu ramen - tamago (1), noodles (1), shoyu broth (1), Prok Chashu (1), Chili oil (1)
+
 6 - Spicy miso ramen -  tamago (1), noodles (1), miso broth (1), Prok Chashu (1), Chili oil (1)
+
 7 - Spicy Tonkatsu ramen -  tamago (1), noodles (1), tonkatsu broth (1), Prok Chashu (1), Chili oil  (1)

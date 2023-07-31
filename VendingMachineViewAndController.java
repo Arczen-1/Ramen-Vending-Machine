@@ -72,6 +72,8 @@ public class VendingMachineViewAndController{
     private JButton stockGo;
     private JButton balGo;
 
+    // Creates a vending machine gui given a VendingMachine parameter vM
+    // initializes frames, buttons, and labels
     public VendingMachineViewAndController(VendingMachine vM){
         Border border = BorderFactory.createLineBorder(Color.black,2);
         
@@ -442,6 +444,10 @@ public class VendingMachineViewAndController{
 
     }
 
+    /**
+     * Adds 10 to the balance of the user
+     * @param evt action event
+     */
     public void tenActionPerformed(java.awt.event.ActionEvent evt) {   
         if(area.equals("")){                         
             if(this.numBal.equals("0")){
@@ -481,6 +487,10 @@ public class VendingMachineViewAndController{
         }
     }   
     
+    /**
+     * Adds 50 to the balance of the user
+     * @param evt action event
+     */
     public void fiftyActionPerformed(java.awt.event.ActionEvent evt) {    
         if(area.equals("")){                                       
             if(this.numBal.equals("0")){
@@ -520,6 +530,10 @@ public class VendingMachineViewAndController{
         }
     }           
     
+    /**
+     * Adds 100 to the balance of the user
+     * @param evt action event
+     */
     public void hundredActionPerformed(java.awt.event.ActionEvent evt) {       
         if(area.equals("")){                      
             if(this.numBal.equals("0")){
@@ -559,6 +573,10 @@ public class VendingMachineViewAndController{
         }
     }           
     
+    /**
+     * Adds 500 to the balance of the user
+     * @param evt action event
+     */
     public void fiveHundredActionPerformed(java.awt.event.ActionEvent evt) {     
         if(area.equals("")){                             
             if(this.numBal.equals("0")){
@@ -598,12 +616,16 @@ public class VendingMachineViewAndController{
         }            
     }   
     
+    /**
+     * Displays detials of ingredient to area and adds to the orderList array
+     * @param evt action event
+     */
     public void tamagoActionPerformed(java.awt.event.ActionEvent evt) {       
         String val = this.numBal.getText();
         double value = Double.valueOf(val);
         double[] amount = vM.getPriceArr();
         String Price = new Double(amount[0]).toString();
-        ingredients tamago = new ingredients("Tamago", 60, 155);
+        ingredients tamago = new ingredients("Tamago", amount[0], 155);
        if(value >= 60){           
         if(area.equals("")){
             area.setText("TAMAGO ADDED! FOR PHP"+Price);
@@ -618,12 +640,16 @@ public class VendingMachineViewAndController{
        }
     }
 
+    /**
+     * Displays detials of ingredient to area and adds to the orderList array
+     * @param evt action event
+     */
     public void noodlesActionPerformed(java.awt.event.ActionEvent evt) {       
         String val = this.numBal.getText();
         double value = Double.valueOf(val);
         double[] amount = vM.getPriceArr();
         String Price = new Double(amount[1]).toString();
-        ingredients noodles = new ingredients("Noodles", 70, 272);
+        ingredients noodles = new ingredients("Noodles", amount[1], 272);
        if(value >= 70){           
         if(area.equals("")){
             area.setText("NOODLES ADDED! FOR PHP"+Price);
@@ -638,12 +664,16 @@ public class VendingMachineViewAndController{
        }
     }
 
+    /**
+     * Displays detials of ingredient to area and adds to the orderList array
+     * @param evt action event
+     */
     public void porkActionPerformed(java.awt.event.ActionEvent evt) {       
         String val = this.numBal.getText();
         double value = Double.valueOf(val);
         double[] amount = vM.getPriceArr();
         String Price = new Double(amount[2]).toString();
-        ingredients pork = new ingredients("Pork Chashu", 120, 482);
+        ingredients pork = new ingredients("Pork Chashu", amount[2], 482);
        if(value >= 120){           
         if(area.equals("")){
             area.setText("PORK ADDED! FOR PHP"+Price);
@@ -658,12 +688,16 @@ public class VendingMachineViewAndController{
        }
     }
 
+    /**
+     * Displays detials of ingredient to area and adds to the orderList array
+     * @param evt action event
+     */
     public void onionActionPerformed(java.awt.event.ActionEvent evt) {       
         String val = this.numBal.getText();
         double value = Double.valueOf(val);
         double[] amount = vM.getPriceArr();
         String Price = new Double(amount[3]).toString();
-        ingredients onion = new ingredients("Green Onion", 50, 3);
+        ingredients onion = new ingredients("Green Onion", amount[3], 3);
        if(value >= 50){           
         if(area.equals("")){
             area.setText("ONION ADDED! FOR PHP"+Price);
@@ -678,12 +712,16 @@ public class VendingMachineViewAndController{
        }
     }
 
+    /**
+     * Displays detials of ingredient to area and adds to the orderList array
+     * @param evt action event
+     */
     public void chiliActionPerformed(java.awt.event.ActionEvent evt) {       
         String val = this.numBal.getText();
         double value = Double.valueOf(val);
         double[] amount = vM.getPriceArr();
         String Price = new Double(amount[4]).toString();
-        ingredients chili = new ingredients("Chili Oil", 40, 100);
+        ingredients chili = new ingredients("Chili Oil", amount[4], 100);
        if(value >= 40){           
         if(area.equals("")){
             area.setText("CHILI ADDED! FOR PHP"+Price);
@@ -698,12 +736,16 @@ public class VendingMachineViewAndController{
        }
     }
 
+    /**
+     * Displays detials of ingredient to area and adds to the orderList array
+     * @param evt action event
+     */
     public void tonkatsuActionPerformed(java.awt.event.ActionEvent evt) {       
         String val = this.numBal.getText();
         double value = Double.valueOf(val);
         double[] amount = vM.getPriceArr();
         String Price = new Double(amount[5]).toString();
-        ingredients tonkatsu = new ingredients("Tonkatso Broth", 100, 360);
+        ingredients tonkatsu = new ingredients("Tonkatso Broth", amount[5], 360);
 
        if(value >= 100){           
         if(area.equals("")){
@@ -719,13 +761,17 @@ public class VendingMachineViewAndController{
        }
     }
 
+    /**
+     * Displays detials of ingredient to area and adds to the orderList array
+     * @param evt action event
+     */
     public void misoActionPerformed(java.awt.event.ActionEvent evt) {   
 
         String val = this.numBal.getText();
         double value = Double.valueOf(val);
         double[] amount = vM.getPriceArr();
         String Price = new Double(amount[6]).toString();
-        ingredients miso= new ingredients("Miso Broth", 80, 60);
+        ingredients miso= new ingredients("Miso Broth", amount[6], 60);
        if(value >= 80){           
         if(area.equals("")){
             area.setText("MISO ADDED! FOR PHP"+Price);
@@ -740,12 +786,16 @@ public class VendingMachineViewAndController{
        }
     }
 
+    /**
+     * Displays detials of ingredient to area and adds to the orderList array
+     * @param evt action event
+     */
     public void shoyuActionPerformed(java.awt.event.ActionEvent evt) {       
         String val = this.numBal.getText();
         double value = Double.valueOf(val);
         double[] amount = vM.getPriceArr();
         String Price = new Double(amount[7]).toString();
-        ingredients shoyu = new ingredients("Shoyu Broth", 80, 36);
+        ingredients shoyu = new ingredients("Shoyu Broth", amount[7], 36);
        if(value >= 80){           
         if(area.equals("")){
             area.setText("SHOYU ADDED! FOR PHP"+Price);
@@ -760,10 +810,18 @@ public class VendingMachineViewAndController{
        }
     }
 
+    /**
+     * Display frame 2 when maintenance is pressed
+     * @param evt action event
+     */
     public void maintenanceActionPerformed(java.awt.event.ActionEvent evt) {   
         this.frame2.setVisible(true);  
     }  
 
+    /**
+     * Sorting of values based on index inside string array
+     * @param Arr contains ingredients
+     */
     public void sort(String[] Arr){
         
         int size = Arr.length;
@@ -779,6 +837,12 @@ public class VendingMachineViewAndController{
         }
     }
 
+    /**
+     * buy ingredients and make ramen product based on the orderList.
+     * implements proper modifactions to the machine balance and the user balance.
+     * Displays total calories of items bought.
+     * @param evt action event
+     */
     public void buyActionPerformed(java.awt.event.ActionEvent evt) {   
         int i = 0;
         int orderListCount = 0;
@@ -1020,89 +1084,84 @@ public class VendingMachineViewAndController{
         
     }  
 
+    /**
+     * Displays corresponding price and stocks left for the ingredient based on the chosen ingredient
+     * to be chosen in the Combo Box
+     * @param evt action event
+     */
     public void ingredientActionPerformed(java.awt.event.ActionEvent evt) {   
+        double[] amount = vM.getPriceArr();
+        int[] stocker = vM.getQuantityArr();
 
         if(this.ingredient.getSelectedIndex() == 0){
-            double[] amount = vM.getPriceArr();
             String Price = new Double(amount[0]).toString();
             this.infoIngredient.setText("Price: PHP " + Price);
 
-            int[] stocker = vM.getQuantityArr();
             String stockss = new Integer(stocker[0]).toString();
             this.stock.setText("Stock: "+stockss);
         }
 
         if(this.ingredient.getSelectedIndex() == 1){
-            double[] amount = vM.getPriceArr();
             String Price = new Double(amount[1]).toString();
             this.infoIngredient.setText("Price: PHP " + Price);
 
-            int[] stocker = vM.getQuantityArr();
             String stockss = new Integer(stocker[1]).toString();
             this.stock.setText("Stock: "+stockss);
         }
 
         if(this.ingredient.getSelectedIndex() == 2){
-            double[] amount = vM.getPriceArr();
             String Price = new Double(amount[0]).toString();
             this.infoIngredient.setText("Price: PHP " + Price);
 
-            int[] stocker = vM.getQuantityArr();
             String stockss = new Integer(stocker[2]).toString();
             this.stock.setText("Stock: "+stockss);
         }
 
         if(this.ingredient.getSelectedIndex() == 3){
-            double[] amount = vM.getPriceArr();
             String Price = new Double(amount[3]).toString();
             this.infoIngredient.setText("Price: PHP " + Price);
 
-            int[] stocker = vM.getQuantityArr();
             String stockss = new Integer(stocker[3]).toString();
             this.stock.setText("Stock: "+stockss);
         }
 
         if(this.ingredient.getSelectedIndex() == 4){
-            double[] amount = vM.getPriceArr();
             String Price = new Double(amount[4]).toString();
             this.infoIngredient.setText("Price: PHP " + Price);
 
-            int[] stocker = vM.getQuantityArr();
             String stockss = new Integer(stocker[4]).toString();
             this.stock.setText("Stock: "+stockss);
         }
             
         if(this.ingredient.getSelectedIndex() == 5){
-            double[] amount = vM.getPriceArr();
             String Price = new Double(amount[5]).toString();
             this.infoIngredient.setText("Price: PHP " + Price);
 
-            int[] stocker = vM.getQuantityArr();
             String stockss = new Integer(stocker[5]).toString();
             this.stock.setText("Stock: "+stockss);
         }
 
         if(this.ingredient.getSelectedIndex() == 6){
-            double[] amount = vM.getPriceArr();
             String Price = new Double(amount[6]).toString();
             this.infoIngredient.setText("Price: PHP " + Price);
 
-            int[] stocker = vM.getQuantityArr();
             String stockss = new Integer(stocker[6]).toString();
             this.stock.setText("Stock: "+stockss);
         }
 
         if(this.ingredient.getSelectedIndex() == 7){
-            double[] amount = vM.getPriceArr();
             String Price = new Double(amount[7]).toString();
             this.infoIngredient.setText("Price: PHP " + Price);
 
-            int[] stocker = vM.getQuantityArr();
             String stockss = new Integer(stocker[7]).toString();
             this.stock.setText("Stock: "+ stockss);
         }
     } 
 
+    /**
+     * collect the balance of the vending machine and sets it to 0
+     * @param evt action event
+     */
     public void getBalActionPerformed(java.awt.event.ActionEvent evt){
         String bal = numMachineBal.getText();
         this.balTake.setText("PHP "+ bal+ " Collected");
@@ -1111,6 +1170,10 @@ public class VendingMachineViewAndController{
         vM.setBalance(0);
     }
 
+    /**
+     * Sets the given price of the ingredient chosen in the Combo Box
+     * @param evt action event
+     */
     public void priceGoActionPerformed(java.awt.event.ActionEvent evt){
         String price = setPrice.getText();
         double dprice = Double.parseDouble(price);
@@ -1124,49 +1187,53 @@ public class VendingMachineViewAndController{
             this.infoIngredient.setText("Price: PHP " + price);
         }
         if(this.ingredient.getSelectedIndex() == 1){
-            ingredients ingredient = ingredientList.get(0);
+            ingredients ingredient = ingredientList.get(1);
             ingredient.setPrice(dprice);
             this.pricenoodles.setText("PHP " + price);
             this.infoIngredient.setText("Price: PHP " + price);
         }
         if(this.ingredient.getSelectedIndex() == 2){
-            ingredients ingredient = ingredientList.get(0);
+            ingredients ingredient = ingredientList.get(2);
             ingredient.setPrice(dprice);
             this.pricePork.setText("PHP " + price);
             this.infoIngredient.setText("Price: PHP " + price);
         }
         if(this.ingredient.getSelectedIndex() == 3){
-            ingredients ingredient = ingredientList.get(0);
+            ingredients ingredient = ingredientList.get(3);
             ingredient.setPrice(dprice);
             this.priceOnion.setText("PHP " + price);
             this.infoIngredient.setText("Price: PHP " + price);
         }
         if(this.ingredient.getSelectedIndex() == 4){
-            ingredients ingredient = ingredientList.get(0);
+            ingredients ingredient = ingredientList.get(4);
             ingredient.setPrice(dprice);
             this.priceChili.setText("PHP " + price);
             this.infoIngredient.setText("Price: PHP " + price);
         }
         if(this.ingredient.getSelectedIndex() == 5){
-            ingredients ingredient = ingredientList.get(0);
+            ingredients ingredient = ingredientList.get(5);
             ingredient.setPrice(dprice);
             this.priceTonkatsu.setText("PHP " + price);
             this.infoIngredient.setText("Price: PHP " + price);
         }
         if(this.ingredient.getSelectedIndex() == 6){
-            ingredients ingredient = ingredientList.get(0);
+            ingredients ingredient = ingredientList.get(6);
             ingredient.setPrice(dprice);
             this.priceMiso.setText("PHP " + price);
             this.infoIngredient.setText("Price: PHP " + price);
         }
         if(this.ingredient.getSelectedIndex() == 7){
-            ingredients ingredient = ingredientList.get(0);
+            ingredients ingredient = ingredientList.get(7);
             ingredient.setPrice(dprice);
             this.priceShoyu.setText("PHP " + price);
             this.infoIngredient.setText("Price: PHP " + price);
         }
     }
 
+    /**
+     * Sets the given stock of the ingredient chosen in the Combo Box
+     * @param evt action event
+     */
     public void stockGoActionPerformed(java.awt.event.ActionEvent evt){
         String stock = setStock.getText();
         int istock = Integer.parseInt(stock);
@@ -1215,6 +1282,10 @@ public class VendingMachineViewAndController{
         }
     }
 
+    /**
+     * Adds input price onto the balance of the machine
+     * @param evt action event
+     */
     public void balGoActionPerformed(java.awt.event.ActionEvent evt){
         String bal = replenishBal.getText();
         double dbal = Double.parseDouble(bal);
@@ -1228,6 +1299,10 @@ public class VendingMachineViewAndController{
         this.numMachineBal.setText(newball);
     }
 
+    /**
+     * Clears the text area
+     * @param evt action event
+     */
     public void clearActionPerformed(java.awt.event.ActionEvent evt) { 
         int i;
         area.setText("");
@@ -1237,6 +1312,10 @@ public class VendingMachineViewAndController{
         }
     }
 
+    /**
+     * Reterieves the balance of the user and sets the user balance back to zero
+     * @param evt action event
+     */
     public void getChangeActionPerformed(java.awt.event.ActionEvent evt) { 
         String bal = this.numMachineBal.getText();
         String currMoney = this.numBal.getText();
@@ -1250,10 +1329,6 @@ public class VendingMachineViewAndController{
         this.area.setText("PHP "+this.numBal.getText()+" Returned");
         this.numBal.setText("0");
         this.numMachineBal.setText(bal);
-    }
-
-    public ArrayList<ingredients> orders(){
-        return orderList;
     }
 
     public static void main(String[] args) {

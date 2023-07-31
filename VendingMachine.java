@@ -13,6 +13,7 @@ public class VendingMachine{
     private double balance; 
     //change of user 
     private double change;
+    //storage array of ingredients quantity
     private int[] stock;
    
     /**
@@ -69,7 +70,11 @@ public class VendingMachine{
         addSlots(slot7);
         addSlots(slot8);
     }
-    
+
+    /**
+     * stores the ingredients name into a string item array and returns the array
+     * @return item name array
+     */
     public String[] getArr(){
         int i = 0;
         
@@ -81,6 +86,10 @@ public class VendingMachine{
        return item;
     }
 
+    /**
+     * stores the ingredients price into a double amount array and returns the array
+     * @return amount price array
+     */
     public double[] getPriceArr(){
         int i = 0;
         
@@ -92,6 +101,10 @@ public class VendingMachine{
        return amount;
     }
 
+    /**
+     * stores the slots quantity into a int stock array and returns the array
+     * @return stock quantity array
+     */
     public int[] getQuantityArr(){
         int i = 0;
 
@@ -102,11 +115,19 @@ public class VendingMachine{
 
         return stock;
     }
-
+    
+    /**
+     * returns the array list ingredientList
+     * @return ingredientList containing the ingredients of ingredients type
+     */
     public ArrayList<ingredients> getIngredientList() {
         return ingredientList;
     }
-
+    
+    /**
+     * returns the array list slotList
+     * @return slotList containing the slots of Slot type
+     */
     public ArrayList<Slot> getSlotList() {
         return slotList;
     }
@@ -136,100 +157,6 @@ public class VendingMachine{
     }
     
     /**
-     * displays the quantity of the ingredient with its corresponding price and calories content
-     */
-    public void displayIngredients(){
-        System.out.println("Available Ingredients: ");
-        int i;
-
-        //display all ingredients
-        System.out.println("    QTY " + "  ITEM  " + "      PRICE "+ "      CALORIES");
-        for(i=0; i < ingredientList.size(); i++){
-            ingredients ingredient = ingredientList.get(i); //ingredientList[i]
-            Slot slot = slotList.get(i);
-            System.out.println((i+1) + ". " + "(" + slot.getQuantity() + ")   " + ingredient.getName() + "       " + ingredient.getPrice() + "       " + ingredient.getCalories());
-        }
-    }
-
-    /**
-     * For purchasing of Ingredients in slots
-     * @param option index of ingredientList
-     * @param money amount of money placed in the vending machine
-     * @param count for number of runs for purchasing (to know how many items is bought)
-     */
-
-    public void purchaseIngredients(double money, int count){
-        int index = 0;
-        change = money;
-        
-        if (index >= 0 && index < slotList.size()){ 
-            Slot slot = slotList.get(index); 
-            ingredients ingredient = ingredientList.get(index); 
-
-            if(slot.getQuantity() > 0){
-
-                double price = ingredient.getPrice();
-
-                if(money >= price){
-
-                    change = money - price;
-
-                    if (change <= balance){
-                        System.out.println("======================"+ "\n");
-                        System.out.println("      Processing... "+ "\n");
-                        System.out.println("======================"+ "\n");
-                        slot.setQuantity(slot.getQuantity() - 1);
-                        item[count] = ingredient.getName();
-                        amount[count] = ingredient.getPrice();
-                        
-                        System.out.println("======================"+ "\n");
-                        System.out.println("   Purchased"+" " +ingredient.getName()+ "!"+"\n");
-                        System.out.println("======================"+ "\n");
-                    }
-                    else {
-                        System.out.println("======================================================="+ "\n");
-                        System.out.println("Sorry, the vending machine does not have enough change."+"\n");
-                        System.out.println("======================================================="+ "\n");
-                    }
-                }
-                else{
-                    System.out.println("======================"+ "\n");
-                    System.out.println("  Insufficient funds. "+ "\n");
-                    System.out.println("======================"+ "\n");
-                }
-            }
-            else{
-                System.out.println("======================"+ "\n");
-                System.out.println("   Out of stock for"+" " +ingredient.getName()+"\n");
-                System.out.println("======================"+ "\n");
-            }
-        }
-        else {
-            System.out.println("======================"+ "\n");
-            System.out.println("   Invalid Option!"+"\n");
-            System.out.println("======================"+ "\n");
-        }
-
-        
-    }
-
-    public void buy(double money){
-
-    }
-
-    /**
-     * sets the quantity of the ingredient in the slot
-     * @param option basis of the index in the slotList array list for the proper slot
-     * @param quantity amount 
-     */
-    public void restock(int option, int quantity){
-        int index = option - 1;
-        Slot slot = slotList.get(index); //set which index to have the right ingredient
-
-        slot.setQuantity(slot.getQuantity() + quantity);
-    }
-
-    /**
      * returns the change amount when user makes a purchase
      * @return change amount
      */
@@ -242,8 +169,7 @@ public class VendingMachine{
      * @param option basis of the index in the ingredientList array list
      * @param price amount to set the price
      */
-    public void setPrice(int option, double price){
-        int index = option - 1;
+    public void setPrice(int index, double price){
         ingredients ingredient = ingredientList.get(index);
         ingredient.setPrice(price); 
     }
@@ -257,51 +183,11 @@ public class VendingMachine{
     }
 
     /**
-     * String array for storing purchased ingredients
-     * @return
-     */
-    public String[] items(){ 
-        return item;
-    }
-
-    /**
-     * double array for storing price of each item
-     * @return
-     */
-    public double[] amounts(){ 
-        return amount;
-    }
-
-    /**
      * add amount to the balance of the machine
      * @param change amount to add to the balance
      */
     public void replenish(double change){
         balance += change;
-    }
-
-    /**
-     * prints
-     * @param item
-     * @param amount
-     * @param change
-     * @param count
-     */
-    public void printReceipt(String[] item, double[] amount, double change, int count){
-
-        double total = 0;
-
-        System.out.println("=========RECEIPT=========");
-        System.out.println("PURCHASED:");
-        System.out.println("ITEM    " + "   PRICE");
-        for(int i = 0; i<count; i++){
-        System.out.println(item[i] +"   PHP "+ amount[i]);
-        total += amount[i];
-        }
-        System.out.println("-------------------------");
-        System.out.println("TOTAL: PHP " + total);
-        System.out.println("CHANGE: PHP " + change);
-        System.out.println("=========================");
     }
     
 }

@@ -205,7 +205,7 @@ public class VendingMachineViewAndController{
         this.priceTamago.setBounds(20, 225, 100,35);
         this.frame.add(priceTamago);
 
-        this.calTamago = new JLabel("115 CAL");
+        this.calTamago = new JLabel("155 CAL");
         this.calTamago.setBounds(20, 250, 100,35);
         this.frame.add(calTamago);
 
@@ -803,6 +803,14 @@ public class VendingMachineViewAndController{
         String[] ramena = new String[4];
         String[] ramenb = new String[4];
         String[] ramenc = new String[4];
+        double calories = 0;
+
+        //get total calory count
+        for(i=0; i<orderList.size(); i++){
+            ingredients ingredient = orderList.get(i);
+            calories += ingredient.getCalories();
+        }
+
 
         for(i=0; i<orderList.size(); i++){
             ingredients ramen = orderList.get(i);
@@ -886,6 +894,7 @@ public class VendingMachineViewAndController{
                         area.append("adding chili..\n");
                         area.append("Shoyu Ramen is served\n");
                         area.append("TOTAL: PHP " + asum);
+                        area.append("\nCalories: " + calories);
                         area.append("\n======================================"+ "\n"+"                                   Purchased! "+ "\n"+"======================================"+ "\n");
                     }
                 
@@ -900,6 +909,7 @@ public class VendingMachineViewAndController{
                         area.append("adding pork to cup..\n");
                         area.append("Tonkatsu Ramen is served\n");
                         area.append("TOTAL: PHP " + asum);
+                        area.append("\nCalories: " + calories);
                         area.append("\n======================================"+ "\n"+"                                   Purchased! "+ "\n"+"======================================"+ "\n");
                     }
                 
@@ -914,6 +924,7 @@ public class VendingMachineViewAndController{
                         area.append("adding pork to cup..\n");
                         area.append("Miso Ramen is served\n");
                         area.append("TOTAL: PHP " + asum);
+                        area.append("\nCalories: " + calories);
                         area.append("\n======================================"+ "\n"+"                                   Purchased! "+ "\n"+"======================================"+ "\n");
                     }
                 
@@ -934,6 +945,7 @@ public class VendingMachineViewAndController{
                         area.append("adding chili..\n");
                         area.append("Spicy Shoyu Ramen is served\n");
                         area.append("TOTAL: PHP " + asum);
+                        area.append("\nCalories: " + calories);
                         area.append("\n======================================"+ "\n"+"                                   Purchased! "+ "\n"+"======================================"+ "\n");
                     }
                 
@@ -949,6 +961,7 @@ public class VendingMachineViewAndController{
                         area.append("adding chili..\n");
                         area.append("Spicy Tonkatsu Ramen is served\n");
                         area.append("TOTAL: PHP " + asum);
+                        area.append("\nCalories: " + calories);
                         area.append("\n======================================"+ "\n"+"                                   Purchased! "+ "\n"+"======================================"+ "\n");
                     }
                     
@@ -964,6 +977,7 @@ public class VendingMachineViewAndController{
                         area.append("adding chili..\n");
                         area.append("Spicy Miso Ramen is served\n");
                         area.append("TOTAL: PHP " + asum);
+                        area.append("\nCalories: " + calories);
                         area.append("\n======================================"+ "\n"+"                                   Purchased! "+ "\n"+"======================================"+ "\n");
                     }
             else{
@@ -979,6 +993,7 @@ public class VendingMachineViewAndController{
                 area.append("\n" + product[i] + " PHP " + amount[i]);
                 area.append("\n======================================"+ "\n"+"                                   Purchased! "+ "\n"+"======================================"+ "\n");
             }
+            area.append("\nCalories: " + calories);
         }
 
 
